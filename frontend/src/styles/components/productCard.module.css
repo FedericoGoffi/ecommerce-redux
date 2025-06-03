@@ -1,0 +1,54 @@
+.cardSection {
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.cardSection:hover {
+    transform: scale(1.05);
+}
+
+.cardImg {
+    width: 230px;
+    height: 230px;
+    object-fit: contain;
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.stars {
+    font-size: 1rem;
+}
+
+.filledStar {
+    color: #f5b50a;
+}
+
+.emptyStar {
+    color: #ccc;
+}
+
+.priceContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.originalPrice {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.discountedPrice {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #e60023;
+}

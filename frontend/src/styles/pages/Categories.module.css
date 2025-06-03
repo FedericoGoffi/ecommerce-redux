@@ -1,0 +1,15 @@
+.categoriesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 130px;
+    font-family: Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, "sans-serif";
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}

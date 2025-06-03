@@ -1,0 +1,41 @@
+.auth {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.imageBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.forms {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    gap: 20rem;
+    align-items: flex-start;
+    justify-content: center;
+}

@@ -1,0 +1,25 @@
+.cardSection {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.cardSection p {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.cardImg {
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 5px 5px 0px 5px;
+}
+
+.cardSection:hover {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .4);
+    transform: scale(1.02);
+}

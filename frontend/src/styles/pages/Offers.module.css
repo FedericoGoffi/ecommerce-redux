@@ -1,0 +1,64 @@
+.offersSection {
+    top: 50px;
+    position: relative;
+    padding: 0 5px 0 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.offersHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.scrollContainer {
+    display: flex;
+    gap: 1rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-right: 20px;
+}
+
+.scrollButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow:
+        3px 4px 6px rgba(0, 0, 0, 0.1),
+        3px 2px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.scrollButton:hover {
+    box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        0 3px 6px rgba(0, 0, 0, 0.12);
+    transform: scale(1.05);
+}
+
+.scrollButton img {
+    height: auto;
+    width: 60%;
+}
+
+.scrollButton.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
