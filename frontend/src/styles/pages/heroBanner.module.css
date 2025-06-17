@@ -41,7 +41,6 @@
 
 .imageBox {
     flex: 1;
-    background-image: url('../../assets/webp/heroBanner_img1.webp');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -53,7 +52,6 @@
     height: 400px;
     flex: 1;
     border-radius: 20px;
-    background-image: url('../../assets/webp/heroBanner_img2.webp');
     background-size: cover;
     background-position: center;
     display: flex;

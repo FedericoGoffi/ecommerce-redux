@@ -1,0 +1,42 @@
+.cartContainer {
+    padding: 5rem 2rem 0 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cartList {
+    list-style: none;
+    padding: 0;
+}
+
+.total {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.checkoutBtn {
+    padding: 0.6rem 1.2rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.checkoutBtn:hover {
+    background-color: #219150;
+}
+
+.emptyCart {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 8rem;
+    color: #777;
+}

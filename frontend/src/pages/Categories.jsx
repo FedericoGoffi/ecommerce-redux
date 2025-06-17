@@ -13,8 +13,8 @@ const Categories = () => {
         <section className={styles.categoriesContainer}>
             <h2>Best Categories</h2>
             <div className={styles.categories}>
-                {categories.map((category) => (
-                    <CategoriesCard key={category.id} product={category} />
+                {categories.map((category, index) => (
+                    <CategoriesCard key={index} product={category} />
                 ))}
             </div>
         </section>

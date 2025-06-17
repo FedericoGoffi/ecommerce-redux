@@ -6,10 +6,10 @@ import LoginForm from '../components/LoginForm'
 import RegisterForm from '../components/RegisterForm'
 
 const images = [
-    '/images/authImg1.webp',
-    '/images/authImg2.webp',
-    '/images/authImg3.webp',
-    '/images/authImg4.webp'
+    '/images/authImg1.avif',
+    '/images/authImg2.avif',
+    '/images/authImg3.avif',
+    '/images/authImg4.avif'
 ]
 
 const Auth = () => {

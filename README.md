@@ -64,6 +64,8 @@ El proyecto cuenta con login. El estado de autenticación se guarda en Redux y s
 
 - **🔐 Login de usuarios**
 
+- **🛒 Carrito de compras básico**
+
 - **🔔 Notificaciones amigables con Sonner**
 
 ---
@@ -72,6 +74,6 @@ El proyecto cuenta con login. El estado de autenticación se guarda en Redux y s
 
 - **🔁 Redirigir automáticamente a / si el usuario logueado intenta acceder a /auth**
 
-- **🛒 Agregar carrito de compras**
+- **🛍️ Implementar proceso de pago**
 
 - **🔍 Añadir pantalla de detalles del producto**

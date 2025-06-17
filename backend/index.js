@@ -1,10 +1,30 @@
 import express from "express";
 import cors from "cors";
+import compression from "compression";
+
 const app = express();
 const port = 3000;
 
+app.use(compression());
 app.use(express.json());
 app.use(cors());
+
+// Middleware para headers de seguridad
+app.use((req, res, next) => {
+    // Content Security Policy básico
+    res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self'");
+
+    // HSTS (para producción con HTTPS)
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+
+    // Cross-Origin-Opener-Policy
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+
+    // Clickjacking protection
+    res.setHeader("X-Frame-Options", "DENY");
+
+    next();
+});
 
 //Ruta categorías
 import categoriesRoute from './routes/categories.js'

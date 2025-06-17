@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import styles from '../styles/components/navbar.module.css'
-import Logo from '../assets/icons/Logo.png'
+import Logo from '../assets/avif/Icons/Logo.avif'
+import Search from '../assets/avif/Icons/Search.avif'
+import Cart from '../assets/avif/Icons/Cart.avif'
+import User from '../assets/avif/Icons/User.avif'
+import loginRegister from '../assets/avif/Icons/loginRegister.avif'
+import Menu from '../assets/avif/Icons/Menu.avif'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -9,7 +14,7 @@ import { useFetchSuggestionsQuery } from '../redux/slices/searchSlice';
 
 //Mantener el usuario logueado
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../redux/reducers/authReducer';
+import { logout } from '../redux/slices/authReducer';
 
 const Navbar = () => {
 
@@ -53,6 +58,10 @@ const Navbar = () => {
         navigate(`/buscar?q=${encodeURIComponent(suggestionText)}`);
     };
 
+    //Carrito
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    const totalItems = cartItems.length;
+
     return (
         <nav className={styles.navbar}>
             <section className={styles.section}>
@@ -65,6 +74,7 @@ const Navbar = () => {
                     <input
                         className={styles.input}
                         type="text"
+                        id='search'
                         value={query}
                         onChange={handleChange}
                         placeholder="Buscar productos, marcas y más..."
@@ -72,7 +82,7 @@ const Navbar = () => {
                     <button
                         className={styles.button}
                         type='submit'>
-                        <img className={styles.iconSearch} src="https://cdn-icons-png.flaticon.com/512/3641/3641531.png" alt="Buscar" />
+                        <img className={styles.iconSearch} src={Search} alt="Buscar" />
                     </button>
 
                     {showSuggestions && suggestions.length > 0 && (
@@ -83,7 +93,7 @@ const Navbar = () => {
                                     onClick={() => handleSelectSuggestions(suggestion.title)}
                                     className={styles.suggestionsItem}
                                 >
-                                    <img className={styles.suggestionsIconSearch} src="https://cdn-icons-png.flaticon.com/512/622/622669.png" />
+                                    <img className={styles.suggestionsIconSearch} src={Search} alt='Buscar' />
                                     {suggestion.title}
                                 </li>
                             ))}
@@ -93,7 +103,7 @@ const Navbar = () => {
                 <ul className={styles.menu}>
                     <li className={styles.dropdown}>
                         <div className={styles.iconWrapper}>
-                            <img onClick={toggleCategories} className={styles.category} src='https://cdn-icons-png.flaticon.com/512/3502/3502685.png' />
+                            <img onClick={toggleCategories} className={styles.category} src={Menu} alt='Menu' />
                         </div>
                         {showCategories && (
                             <ul className={`${styles.dropdown_menu} ${showCategories ? styles.show : ''}`}>
@@ -114,7 +124,7 @@ const Navbar = () => {
                     {user ? (
                         <li className={styles.dropdown}>
                             <div className={styles.iconWrapper}>
-                                <img className={styles.user} src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt="Avatar" />
+                                <img className={styles.user} src={User} alt="Avatar" />
                             </div>
                             <ul className={styles.dropdown_menu}>
                                 <li><a href="#">Configuración</a></li>
@@ -124,13 +134,20 @@ const Navbar = () => {
                     ) : (
                         <li>
                             <a className={styles.iconWrapper} href='/auth'>
-                                <img className={styles.user} src='https://cdn-icons-png.flaticon.com/512/6676/6676016.png' />
+                                <img className={styles.user} src={loginRegister} alt='Avatar' />
                             </a>
                         </li>
                     )}
-                    <li>
-                        <a className={styles.iconWrapper} href='#'>
-                            <span><img className={styles.cart} src='https://cdn-icons-png.flaticon.com/512/1170/1170678.png' /></span>
+                    <li className={styles.iconWrapper}>
+                        <a href="/cart">
+                            <img
+                                className={styles.cart}
+                                src={Cart}
+                                alt="Cart"
+                            />
+                            {totalItems > 0 && (
+                                <span className={styles.cartBadge}>{totalItems}</span>
+                            )}
                         </a>
                     </li>
                 </ul>

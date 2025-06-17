@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../redux/slices/authSlice'
 
 import { useDispatch } from 'react-redux'
-import { setCredentials } from '../redux/reducers/authReducer'
+import { setCredentials } from '../redux/slices/authReducer'
 
 const LoginForm = () => {
     const formRef = useRef(null);

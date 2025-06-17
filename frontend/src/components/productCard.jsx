@@ -1,8 +1,15 @@
 import React from 'react'
 import styles from '../styles/components/productCard.module.css'
 
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../redux/slices/cartSlice';
+
 const ProductCard = ({ product }) => {
-    const { title, images, price, discountPercentage, rating } = product
+
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.cartItems);
+
+    const { id, title, images, price, discountPercentage, rating } = product
 
     const discountAmount = (price * (discountPercentage / 100))
     const discountedPrice = (price - discountAmount).toFixed(2)
@@ -10,6 +17,19 @@ const ProductCard = ({ product }) => {
 
     const maxCaracter = 24;
     const truncatedTitle = title.length > maxCaracter ? `${title.slice(0, maxCaracter)}...` : title
+
+    //Añadir producto al carrito
+    const handleAddToCart = () => {
+        dispatch(addToCart({
+            id,
+            title,
+            price,
+            image: images[0],
+            quantity: 1
+        }));
+    };
+
+    const isInCart = cartItems.some(item => item.id === id);
 
     return (
         <section className={styles.cardSection}>
@@ -26,6 +46,13 @@ const ProductCard = ({ product }) => {
                 <p className={styles.originalPrice}>${price.toFixed(2)}</p>
                 <p className={styles.discountedPrice}>${discountedPrice}</p>
             </div>
+            <button
+                className={styles.addToCartButton}
+                onClick={handleAddToCart}
+                disabled={isInCart}
+            >
+                {isInCart ? 'Agregado' : 'Añadir al carrito'}
+            </button>
         </section>
     )
 }
