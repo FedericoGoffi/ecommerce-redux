@@ -4,6 +4,7 @@
     padding: 1rem;
     transition: transform 0.3s ease;
     scroll-snap-align: start;
+    cursor: pointer;
 }
 
 .cardSection:hover {

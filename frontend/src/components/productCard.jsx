@@ -1,22 +1,30 @@
 import React from 'react'
 import styles from '../styles/components/productCard.module.css'
 
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/slices/cartSlice';
 
 const ProductCard = ({ product }) => {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
 
     const { id, title, images, price, discountPercentage, rating } = product
 
+    //Aplicar descuento
     const discountAmount = (price * (discountPercentage / 100))
     const discountedPrice = (price - discountAmount).toFixed(2)
     const roundedRating = Math.round(rating)
 
     const maxCaracter = 24;
     const truncatedTitle = title.length > maxCaracter ? `${title.slice(0, maxCaracter)}...` : title
+
+    //Ir a la pagina del producto
+    const handleNavigate = () => {
+        navigate(`/product/${id}`);
+    };
 
     //Añadir producto al carrito
     const handleAddToCart = () => {
@@ -32,7 +40,7 @@ const ProductCard = ({ product }) => {
     const isInCart = cartItems.some(item => item.id === id);
 
     return (
-        <section className={styles.cardSection}>
+        <section onClick={handleNavigate} className={styles.cardSection}>
             <img className={styles.cardImg} src={images[0]} alt={title} loading="lazy" />
             <h3 className={styles.cardTitle}>{title ? truncatedTitle : 'No title'}</h3>
 
@@ -48,7 +56,10 @@ const ProductCard = ({ product }) => {
             </div>
             <button
                 className={styles.addToCartButton}
-                onClick={handleAddToCart}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    handleAddToCart();
+                }}
                 disabled={isInCart}
             >
                 {isInCart ? 'Agregado' : 'Añadir al carrito'}

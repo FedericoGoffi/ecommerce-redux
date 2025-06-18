@@ -68,12 +68,10 @@ El proyecto cuenta con login. El estado de autenticación se guarda en Redux y s
 
 - **🔔 Notificaciones amigables con Sonner**
 
+- **🔍 Pantalla de detalles del producto**
+
 ---
 
 ## 🔧 Próximas mejoras
 
-- **🔁 Redirigir automáticamente a / si el usuario logueado intenta acceder a /auth**
-
 - **🛍️ Implementar proceso de pago**
-
-- **🔍 Añadir pantalla de detalles del producto**

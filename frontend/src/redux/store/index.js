@@ -9,6 +9,7 @@ import { searchSlice } from '../slices/searchSlice.js'
 import { offersSlice } from '../slices/offersSlice.js';
 import { bestCategoriesSlice } from '../slices/bestCategoriesSlice.js';
 import { authSlice } from '../slices/authSlice.js';
+import { productDetailsApi } from '../slices/productDetailsSlice.js';
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     [searchSlice.reducerPath]: searchSlice.reducer,
     [offersSlice.reducerPath]: offersSlice.reducer,
     [bestCategoriesSlice.reducerPath]: bestCategoriesSlice.reducer,
-    [authSlice.reducerPath]: authSlice.reducer
+    [authSlice.reducerPath]: authSlice.reducer,
+    [productDetailsApi.reducerPath]: productDetailsApi.reducer
 });
 
 const persistConfig = {
@@ -38,7 +40,8 @@ export const store = configureStore({
             .concat(categoriesSlice.middleware)
             .concat(searchSlice.middleware)
             .concat(offersSlice.middleware)
-            .concat(bestCategoriesSlice.middleware),
+            .concat(bestCategoriesSlice.middleware)
+            .concat(productDetailsApi.middleware),
 });
 
 export const persistor = persistStore(store);

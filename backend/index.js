@@ -28,28 +28,27 @@ app.use((req, res, next) => {
 
 //Ruta categorías
 import categoriesRoute from './routes/categories.js'
-
 app.use('/api/categories', categoriesRoute)
 
 //Ruta sugerencias
 import suggestionsRoute from './routes/search.js'
-
 app.use('/api/suggestions', suggestionsRoute)
 
 //Ruta ofertas
 import offersRoute from './routes/offers.js'
-
 app.use('/api/offers', offersRoute)
 
 //Ruta categorias
 import bestCategoriesRoute from './routes/bestCategories.js'
-
 app.use('/api/bestCategories', bestCategoriesRoute)
 
 //Ruta Auth
 import authRoutes from './routes/auth/index.js'
-
 app.use('/api/auth', authRoutes)
+
+//Ruta Productos
+import productsRoute from './routes/products.js'
+app.use('/api/products', productsRoute)
 
 app.listen(port, () => {
     console.log('Backend corriendo en el puerto', port)

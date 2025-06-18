@@ -9,6 +9,7 @@ const Offers = lazy(() => import('./pages/Offers.jsx'));
 const Categories = lazy(() => import('./pages/Categories.jsx'));
 const Auth = lazy(() => import('./pages/Auth.jsx'));
 const Cart = lazy(() => import('./pages/Cart.jsx'));
+const ProductDetails = lazy(() => import('./pages/ProductDetails.jsx'));
 import Footer from './components/Footer.jsx'
 
 import { Provider } from 'react-redux'
@@ -35,7 +36,7 @@ createRoot(document.getElementById('root')).render(
                 </>
               } />
               <Route path='/auth' element={< Auth />} />
-              <Route path='/product/:id' element={< Offers />} />
+              <Route path='/product/:id' element={< ProductDetails />} />
               <Route path='/category/:id' element={< Categories />} />
               <Route path='/cart' element={< Cart />} />
             </Routes>

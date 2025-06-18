@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { toast } from 'sonner'
+
 import styles from '../styles/components/navbar.module.css'
 import Logo from '../assets/avif/Icons/Logo.avif'
 import Search from '../assets/avif/Icons/Search.avif'
@@ -24,8 +26,14 @@ const Navbar = () => {
 
     // Categorías
     const { data: categories = [], isLoading, error } = useFetchCategoriesQuery();
-
     const [showCategories, setShowCategories] = useState(false);
+
+    //Dropdown user
+    const [showUserMenu, setShowUserMenu] = useState(false);
+
+    const toggleUserMenu = () => {
+        setShowUserMenu(prev => !prev);
+    }
 
     const [query, setQuery] = React.useState('');
     const { data: suggestions = [] } = useFetchSuggestionsQuery(query, {
@@ -53,9 +61,10 @@ const Navbar = () => {
         }
     };
 
-    const handleSelectSuggestions = (suggestionText) => {
-        setQuery(suggestionText);
-        navigate(`/buscar?q=${encodeURIComponent(suggestionText)}`);
+    const handleSelectSuggestions = (suggestion) => {
+        setQuery('');
+        setShowSuggestions(false);
+        navigate(`/product/${suggestion.id}`);
     };
 
     //Carrito
@@ -90,7 +99,7 @@ const Navbar = () => {
                             {suggestions.map((suggestion) => (
                                 <li
                                     key={suggestion.id}
-                                    onClick={() => handleSelectSuggestions(suggestion.title)}
+                                    onClick={() => handleSelectSuggestions(suggestion)}
                                     className={styles.suggestionsItem}
                                 >
                                     <img className={styles.suggestionsIconSearch} src={Search} alt='Buscar' />
@@ -114,7 +123,7 @@ const Navbar = () => {
                                 ) : (
                                     categories.map((category, index) => (
                                         <li key={index}>
-                                            <a href="#">{category.title}</a>
+                                            <a href="#">{category.name}</a>
                                         </li>
                                     ))
                                 )}
@@ -123,13 +132,24 @@ const Navbar = () => {
                     </li>
                     {user ? (
                         <li className={styles.dropdown}>
-                            <div className={styles.iconWrapper}>
+                            <div className={styles.iconWrapper} onClick={toggleUserMenu}>
                                 <img className={styles.user} src={User} alt="Avatar" />
                             </div>
-                            <ul className={styles.dropdown_menu}>
-                                <li><a href="#">Configuración</a></li>
-                                <li onClick={() => dispatch(logout())}><a href="#">Cerrar sesión</a></li>
-                            </ul>
+                            {showUserMenu && (
+                                <ul className={`${styles.user_dropdown_menu} ${showUserMenu ? styles.show : ''}`}>
+                                    <li><a href="#">Ver perfil</a></li>
+                                    <li><a href="#">Configuración</a></li>
+                                    <li
+                                        onClick={() => {
+                                            dispatch(logout());
+                                            toast.success('Sesión cerrada correctamente!');
+                                            navigate('/');
+                                        }}
+                                    >
+                                        <a href="#">Cerrar sesión</a>
+                                    </li>
+                                </ul>
+                            )}
                         </li>
                     ) : (
                         <li>
@@ -151,8 +171,8 @@ const Navbar = () => {
                         </a>
                     </li>
                 </ul>
-            </section>
-        </nav>
+            </section >
+        </nav >
     )
 }
 

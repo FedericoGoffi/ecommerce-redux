@@ -121,6 +121,7 @@
     overflow: hidden;
     transition: background-color 0.3s;
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
 }
@@ -174,6 +175,7 @@
 .dropdown_menu li a {
     color: #fff;
     cursor: pointer;
+    list-style: none;
     text-decoration: none;
     display: block;
     padding: 5px 10px;
@@ -183,12 +185,58 @@
 }
 
 .dropdown_menu li a:hover {
-    background-color: #3483FA;
+    background-color: #F1641E;
     color: #fff;
 }
 
 .dropdown:hover .dropdown_menu {
     display: block;
+}
+
+.user_dropdown_menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    list-style: none;
+    margin: 0;
+    border-radius: 4px;
+    padding: 8px 0;
+    line-height: 1.8;
+    white-space: nowrap;
+    min-width: 160px;
+    max-width: 180px;
+    width: max-content;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.user_dropdown_menu.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.user_dropdown_menu li a {
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    display: block;
+    padding: 6px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.2s;
+}
+
+.user_dropdown_menu li a:hover {
+    background-color: #F1641E;
+    color: #fff;
 }
 
 .cartBadge {
