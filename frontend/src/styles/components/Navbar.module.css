@@ -1,0 +1,554 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 1000;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.navContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 1rem;
+}
+
+.logoSection {
+    flex-shrink: 0;
+}
+
+.logoLink {
+    display: block;
+    text-decoration: none;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.searchSection {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    display: none;
+}
+
+.searchForm {
+    position: relative;
+    width: 100%;
+}
+
+.searchInputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchInput {
+    width: 100%;
+    height: 44px;
+    padding: 0 50px 0 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 14px;
+    background-color: #f9fafb;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.searchInput:focus {
+    border-color: #e39b00;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.searchButton {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
+    border: none;
+    border-radius: 25px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.searchButton:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.searchIcon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.suggestionsContainer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    margin-top: 4px;
+}
+
+.suggestionsList {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    max-height: 300px;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.suggestionItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.suggestionItem:last-child {
+    border-bottom: none;
+}
+
+.suggestionItem:hover {
+    background-color: #f3f4f6;
+}
+
+.suggestionIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    opacity: 0.6;
+}
+
+.suggestionText {
+    font-size: 14px;
+    color: #374151;
+}
+
+.desktopMenu {
+    display: none;
+    flex-shrink: 0;
+}
+
+.menuItems {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menuItem {
+    position: relative;
+}
+
+.menuButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.menuButton:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.menuIcon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.menuText {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cartButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #374151;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cartButton:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.cartIconWrapper {
+    position: relative;
+}
+
+.cartBadge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.dropdown,
+.userDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+    margin-top: 8px;
+    z-index: 50;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dropdownList {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.dropdownItem {
+    margin: 0;
+}
+
+.dropdownLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    color: #374151;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.dropdownLink:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.logoutButton {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    color: #374151;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.logoutButton:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.loadingText,
+.errorText {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.mobileMenuButton {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.hamburgerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.hamburgerButton:hover {
+    background-color: #f3f4f6;
+}
+
+.hamburgerIcon {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.hamburgerIcon span {
+    width: 20px;
+    height: 2px;
+    background-color: #374151;
+    border-radius: 1px;
+    transition: all 0.2s ease;
+}
+
+.mobileSearchSection {
+    display: block;
+    padding: 12px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mobileSearchForm {
+    position: relative;
+}
+
+.mobileMenuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mobileMenuContent {
+    background: #ffffff;
+    width: 280px;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.mobileMenuHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.mobileMenuTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.closeButton {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.closeButton:hover {
+    background-color: #f3f4f6;
+}
+
+.mobileMenuItems {
+    padding: 16px 0;
+}
+
+.mobileMenuItem {
+    margin-bottom: 8px;
+}
+
+.mobileMenuButton {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    background: none;
+    color: #374151;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: left;
+}
+
+.mobileMenuButton:hover {
+    background-color: #f3f4f6;
+}
+
+.mobileMenuIcon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.mobileSubmenu {
+    background-color: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mobileSubmenuItem {
+    display: block;
+    padding: 12px 20px 12px 52px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.mobileSubmenuItem:hover {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.mobileCartWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.menuButton,
+.cartButton,
+.mobileMenuButton,
+.logoutButton,
+.dropdownLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 12px;
+    line-height: 1;
+    vertical-align: middle;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    background: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+.menuText {
+    display: inline-block;
+    font-weight: inherit;
+    line-height: 1;
+}
+
+.menuIcon,
+.mobileMenuIcon {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .searchSection {
+        display: block;
+    }
+
+    .desktopMenu {
+        display: block;
+    }
+
+    .mobileMenuButton {
+        display: none;
+    }
+
+    .mobileSearchSection {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .navContent {
+        gap: 2rem;
+    }
+
+    .menuItems {
+        gap: 16px;
+    }
+}

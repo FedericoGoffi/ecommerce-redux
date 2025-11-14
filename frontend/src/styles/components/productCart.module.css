@@ -1,0 +1,149 @@
+/* Minimal design with clean lines, subtle spacing, and neutral colors */
+.cartItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
+    transition: background-color 0.2s ease;
+}
+
+.cartItem:hover {
+    background: #f9f9f9;
+}
+
+.cartItem:last-child {
+    border-bottom: none;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid #e5e5e5;
+    margin-right: 1.5rem;
+}
+
+.details {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.details h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.details p {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.quantity label {
+    font-weight: 400;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.quantity input {
+    width: 60px;
+    padding: 8px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    text-align: center;
+    transition: border-color 0.2s ease;
+    background: white;
+}
+
+.quantity input:focus {
+    outline: none;
+    border-color: #999;
+}
+
+.removeButton {
+    background: white;
+    border: 1px solid #ddd;
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.removeButton:hover {
+    background: #f5f5f5;
+    border-color: #999;
+    color: #333;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .cartItem {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+
+    .image {
+        width: 80px;
+        height: 80px;
+        margin-right: 0;
+        align-self: center;
+    }
+
+    .details {
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .quantity {
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
+    .removeButton {
+        align-self: center;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cartItem {
+        padding: 1rem;
+    }
+
+    .image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .details h3 {
+        font-size: 1rem;
+    }
+
+    .details p {
+        font-size: 0.9rem;
+    }
+}

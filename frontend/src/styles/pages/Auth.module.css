@@ -1,0 +1,64 @@
+.auth {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.imageBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Enhanced overlay with subtle gradient for better visual depth */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+
+.forms {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+/* Added responsive design for mobile devices */
+@media (max-width: 768px) {
+    .forms {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .forms {
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+}
