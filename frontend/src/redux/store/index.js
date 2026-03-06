@@ -11,7 +11,6 @@ import { bestCategoriesSlice } from '../slices/bestCategoriesSlice.js';
 import { authSlice } from '../slices/authSlice.js';
 import { productDetailsApi } from '../slices/productDetailsSlice.js';
 import { productsApi } from '../slices/productsSlice.js';
-import { paymentsApi } from '../slices/paymentsSlice.js';
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -22,8 +21,7 @@ const rootReducer = combineReducers({
     [bestCategoriesSlice.reducerPath]: bestCategoriesSlice.reducer,
     [authSlice.reducerPath]: authSlice.reducer,
     [productDetailsApi.reducerPath]: productDetailsApi.reducer,
-    [productsApi.reducerPath]: productsApi.reducer,
-    [paymentsApi.reducerPath]: paymentsApi.reducer
+    [productsApi.reducerPath]: productsApi.reducer
 });
 
 const persistConfig = {
@@ -46,8 +44,7 @@ export const store = configureStore({
             .concat(offersSlice.middleware)
             .concat(bestCategoriesSlice.middleware)
             .concat(productDetailsApi.middleware)
-            .concat(productsApi.middleware)
-            .concat(paymentsApi.middleware),
+            .concat(productsApi.middleware),
 });
 
 export const persistor = persistStore(store);

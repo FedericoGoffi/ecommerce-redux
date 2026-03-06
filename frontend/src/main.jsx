@@ -11,7 +11,6 @@ const Auth = lazy(() => import('./pages/Auth.jsx'));
 const Cart = lazy(() => import('./pages/Cart.jsx'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails.jsx'));
 const SearchCategories = lazy(() => import('./pages/SearchCategories.jsx'));
-const Checkout = lazy(() => import('./pages/checkoutPage.jsx'));
 import Footer from './components/Footer.jsx'
 
 import { Provider } from 'react-redux'
@@ -41,7 +40,6 @@ createRoot(document.getElementById('root')).render(
               <Route path='/product/:id' element={<>< ProductDetails /><Footer /></>} />
               <Route path='/category/:id' element={<>< SearchCategories /><Footer /></>} />
               <Route path='/cart' element={< Cart />} />
-              <Route path='/checkout' element={< Checkout />} />
             </Routes>
           </Suspense>
         </PersistGate>

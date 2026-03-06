@@ -50,10 +50,6 @@ app.use('/api/products', productsRoute)
 import searchCategoriesRoute from './routes/searchCategories.js'
 app.use('/api/searchCategories', searchCategoriesRoute)
 
-//Ruta pagos
-import paymentsRoute from './routes/payments.js'
-app.use('/api/payments', paymentsRoute)
-
 app.listen(port, () => {
     console.log('Backend corriendo en el puerto', port)
 })
